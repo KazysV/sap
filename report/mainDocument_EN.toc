@@ -1,11 +1,7 @@
 \babel@toc {english}{}\relax 
-\contentsline {section}{\nameref {sec:keywords}}{3}{section*.2}%
-\contentsline {section}{Abstract}{4}{section*.3}%
-\contentsline {section}{Santrauka}{5}{section*.4}%
-\contentsline {section}{\nameref {sec:intro}}{6}{section*.5}%
-\contentsline {section}{\numberline {1}Analysis}{7}{section.1}%
-\contentsline {subsection}{\numberline {1.1}some subection}{7}{subsection.1.1}%
-\contentsline {subsubsection}{\numberline {1.1.1}The first sub-subsection}{7}{subsubsection.1.1.1}%
-\contentsline {section}{\nameref {sec:conclu}}{8}{section*.7}%
-\contentsline {section}{\nameref {sec:future}}{9}{section*.8}%
-\contentsline {section}{References}{10}{section*.9}%
+\contentsline {section}{\numberline {1}Algorithm implementation}{4}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Weighted Moving Average algorithm}{4}{subsection.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}The first sub-subsection}{4}{subsubsection.1.1.1}%
+\contentsline {section}{\nameref {sec:conclu}}{5}{section*.3}%
+\contentsline {section}{\nameref {sec:future}}{6}{section*.4}%
+\contentsline {section}{References}{7}{section*.5}%
