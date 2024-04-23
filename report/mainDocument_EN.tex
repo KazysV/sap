@@ -21,85 +21,265 @@
 
 \begin{document}
  % #1 -report type, #2 - title, #3-7 students, #8 - supervisor
- \depttitlepage{ Signal analysis and processing course task 1}{Moving average algorithms\\{\small Weighted and exponential}}{Kazimieras Vitkus}{}{}{}{}{dr. Tadas Meškauskas}
+ \depttitlepage{<<Super programos>> <<x>> kurso <<Darbo/ataskaitos tipas>>}{Darbo pavadinimas rašomąja kalba\\{\small Pavadinimas kita kalba}}{Vardas Vardaitis} 
+ {}{}{}{}% students 2-5
+{dr. Vadovas Vadovaitis}
 
 \tableofcontents
-
-
 \newpage
-\abstract{\input{abstract}}%tex-file of abstract in original language
-%the main part
-\newpage
-\section{Algorithm implementation}\label{sec:motivation}
-
-For the implementation of moving average algorithms, python programming language was used. The following libraries were used: numpy, pandas and matplotlib. The code was written in Jupyter notebook, which is attached to this report.
-\subsection{Weighted Moving Average algorithm}\label{sec:example}
-Pateikiamas \ref{sec:example} poskyrio tekstas. 
 
 
- 
-\subsubsection{The first sub-subsection}\label{sec:data}
-Pateikiamas trečio lygio poskyrio tekstas.
+\section{Introduction}
 
-\begin{equation}
-x = \sum_{i=1}^N m_i
-\end{equation}
-
-\begin{table}[!ht]\centering
-\caption{Lentelė ... }
-\label{tabl:table}
-\begin{tabular}{|l|r|}\hline
-test & test\\ \hline\hline
-test & test\\\hline
-\end{tabular}
-\end{table}
-
-Sprendimas pristatomas \ref{alg:1} algoritme, o įgyvendinimas -- \ref{abc} išeities kode.
-
-\begin{algorithm}\caption{Algoritmas uždavinio sprendimui}
-  \label{alg:1}
-  \begin{algorithmic}
-    \REQUIRE 
-    \ENSURE 
-\STATE a \AND b
-\end{algorithmic}
+\hspace{1em} The task of this project is to implement, analyse and compare moving average algorithms. Two algorithms
+are in the scope of the project: Weighted Moving average (WMA) and Exponential Moving Average (EMA). The
+algorithms will be implemented in Python programming language, using NumPy, Pandas, Matplotlib libraries. The
+programming will be done in Jupyter Notebook environment. The algorithms will be tested on the same dataset.
 
 
-\end{algorithm}
+\section{Definition of algorithms and signal}
+
+\subsection{Moving Average algorithm}\label{MA}
+\hspace{1em} A moving average algorithm is a statistical technique used to analyze sequential data points by creating 
+a series of averages of different subsets of the full dataset. Typically applied in time-series analysis, 
+finance, and signal processing, it smooths out fluctuations to reveal underlying trends or patterns. 
+The algorithm involves calculating the mean of a specified number of data points within a sliding window,
+which moves along the dataset, updating the average at each step. This process effectively filters out 
+short-term fluctuations, making it easier to identify longer-term trends or patterns within the data.
+
+Given that we have a digital signal \begin{math}
+    f_0,f_1,...,f_N
+\end{math} and chosen the window size \begin{math}
+    K
+    \end{math} - positive integer. By applying the moving average algorithm to \begin{math}
+        f_i
+    \end{math} we get the sum of averages in window of size \begin{math}
+        K
+    \end{math} to both side. The formula for moving average is:
+    \begin{gather}\label{MA_equation}
+        g_i = \frac{1}{2K+1} \sum_{j=-K}^{K} f_{i+j},\hspace{1 cm}i = K, K+1, ..., N-K
+    \end{gather}
+   
+    To be noted, the first value of signal that has been averaged value is \begin{math}
+        f_K
+    \end{math} and the last value is \begin{math}
+        f_{N-K}
+        \end{math}. The moving average algorithm is used to smooth out short-term fluctuations in the data, 
+        however during the process the length of the signal is reduced.
+        \subsection{Weighted Moving Average algorithm}\label{WMA}
+        \hspace{1em} In the subsection \ref{MA} moving average algorithm was introduced. The moving average 
+        algorithm is simple, due to the fact that it averages all the values in the window equally as shown 
+        in the formula \ref{MA_equation}. However, in some cases it is more beneficial to give more weight to
+        the values that are closer to the current value. This is where the weighted moving average algorithm
+        comes in. The weighted moving average algorithm is a variation of the moving average algorithm, where
+        the values in the window are given different weights. The formula for weighted moving average is:
+        \begin{gather}\label{WMA_equation}
+            g_i = \frac{1}{2K+1} \sum_{j=-K}^{K} w_j f_{i+j},\hspace{1 cm}i = K, K+1, ..., N-K, \hspace{1 cm} w_j \sum_{j=-K}^K = 1
+        \end{gather}
+
+
+        The weighted moving average algorithm weights can be defined in various ways. The most common way is to
+        use the Gaussian function. The Gaussian function is a bell-shaped curve that is symmetric around the mean.
+        The Gaussian function is defined as:
+        \newpage
+        \begin{gather}\label{Gaussian}
+            p(x) = \frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}
+        \end{gather}
+
+        Lets say that \begin{math}
+            f_{i-K}
+        \end{math} and \begin{math}
+            f_{i+K}
+        \end{math} 
+        should be \begin{math}
+            L
+        \end{math} times less important than the center value \begin{math}
+            f_i
+        \end{math}. In this case \begin{math}
+            L > 1
+        \end{math} is a positive integer, a parameter to weighted moving
+        average algorithm. The range of weights distribution could be 
+        discretised in range: \begin{math}
+            -x_k \leq x \leq x_k
+        \end{math}, then it can be calculated where \begin{math}
+            x_k \end{math}, is less than center value \begin{math}
+                x_0 \end{math} in Gaussian distribution formula \ref{Gaussian}:
+                \begin{gather}\label{Gaussian_discretised}
+                    \frac{p(0)}{p(x_k)} = L, 
+                    \hspace{1 cm} x_k = \sqrt{-2\ln{L}}
+                \end{gather}
+
+
+        To comply with the rule that weights \begin{math}
+            \sum_{j=-K}^K w_j = 1
+        \end{math} the weights should be normalized. The normalized weights are defined as:
+        \begin{gather}\label{Normalized_weights}
+            w_j = \frac{p(j)}{\sum_{j=-K}^K p(j)}, \hspace{1 cm} j = -K, -K+1, ..., K
+        \end{gather}
+        \begin{figure}[ht]
+            \centering
+            \includegraphics[width=0.8\textwidth]{images/weights.png} % Replace "path/to/your/image" with the actual path to your image file
+            \caption{Distribution of normalized weights where L = 10 and K = 30}
+            \label{fig:my_image}
+        \end{figure}
+
+        \subsection{Exponential Moving Average algorithm}\label{EMA}
+        \hspace{1em} The exponential moving average algorithm is another variation of the moving average algorithm.
+        This method is similar to the weighted moving average algorithm \ref{WMA}, 
+        but have two main diffrences:
+        \begin{enumerate}
+            \item Instead of parameters \begin{math}
+                K
+            \end{math} and \begin{math}
+                L
+            \end{math} the exponential moving average algorithm has only one parameter \begin{math}
+                \alpha
+            \end{math}.
+            \item When new signal value is appended, it is enough to know 
+            the previous average value to calculate the new average value. For refrence, 
+            other averaging algorithms need to know all the values in the window.
+        \end{enumerate}
+
+        To average the signal with exponential moving average algorithm, 
+        the formula is used: \begin{gather}
+            g_n = (1-\alpha) g_{n-1} + \alpha f_n, \hspace{1 cm} n = 1, 2, \dots , \hspace{1 cm} g_0 = f_0
+        \end{gather}
+        
+        \subsection{Signal for the algorithm analysis}
+        \hspace{1em}For the task of this project, the financial market signal was chosen. The daily values of 
+        the S\&P 500 index\cite{SP500} at market close from 2014 to 2024 were used. The signal was chosen because it has
+         high volatility and represents the financial market well. 
+
+
+        \begin{figure}[ht]
+            \centering
+            \includegraphics[width=0.8\textwidth]{images/SP500.png} % Replace "path/to/your/image" with the actual path to your image file
+            \caption{S\&P 500 index signal from 2014 to 2024}
+            \label{fig:SP500}
+        \end{figure}
+
+        As can be seen from figure \ref{fig:SP500}, the value of the index have increased over 2.5 times in the
+        period of 10 years. The signal has high volatility, which is good for the analysis of moving average algorithms.
+        
+        For demonstration purposes, these signals will be also used in the project:
+        \begin{enumerate}
+            \item signal 1
+            \item signal 2
+            \item signal 3
+            \item signal 4
+        \end{enumerate}
+        
+        See the related charts in the section 4 of the assignment.
+        \newpage
+        \section{Analysis}
+
+        \subsection{Averaging signal with WMA}
+
+        \hspace{1em} The weighted moving average algorithm has two parameters that can be adjusted
+
+        \begin{enumerate}
+                \item \begin{math} \bold{K}\end{math} - the size of the window;
+                \item \begin{math}
+                    \bold{L}
+                \end{math} - the parameter that defines the importance of the values in the window.
+
+                \end{enumerate}
+
+                By adjusting these parameters, the algorithm tends to smooth out the signal more or less.
+                However, by over tuning the parameters, the algorithm can lose the important information in the signal, i.e.
+                the algorithm can over smooth the signal.
+                \begin{figure}[ht]
+                    \centering
+                    \includegraphics[width=1\textwidth]{images/WMA_ex_1.png} % Replace "path/to/your/image" with the actual path to your image file
+                    \caption[Short caption for the list of figures]{On top left chart original signal is shown, on top right chart signal is 
+                    averaged with WMA with K = 30 and L = 10, on bottom left chart signal is averaged with WMA  with K = 270 and L = 30, on bottom right chart 
+                    signal is averaged with WMA  with K = 5 and L = 5.}
+                    \label{fig:WMA_ex_1}
+                \end{figure}
+
+                As can be seen from the figure \ref{fig:WMA_ex_1}, the parameters adjust the smoothness of the signal. 
+                The larger the \begin{math}
+                    K
+                \end{math} the smoother the signal gets, also the window of values get shorter,due to 
+                algorithms design that only allows to compute values that are in range of
+                \begin{math}
+                    g = (f_{0+K}; f_{N-K})
+                \end{math}
+                , see the top left and 
+                the bottom left charts in figure \ref*{fig:WMA_ex_1}.
+                 The larger the \begin{math}
+                    L
+                \end{math} the more the values in the window are weighted towards the center value.
+
+                For this particular case study of SP500 signal, the logic parameters for WMA should correlate with the cycles
+                of weeks, months, quarters and years. For the case of WMA, parameter \begin{math}
+                    K
+                \end{math} represents the days that are in window, for example if we set \begin{math}
+                    K = 30
+                \end{math} the window will be 60 days, which is approximately one month before and one month after to
+                the date of intrest.
+
+                \subsection{Qualitative analysis of WMA}
+
+                \hspace{1 em} The main concerns with moving average algorithms 
+                is that they tend to lag behind the signal, can be too smooth or retain too much noise. It all depends on
+                the parameters that are chosen for the algorithm. The weighted moving average algorithm is more flexible, 
+                because it allows to adjust the weights of the values in the window.
+
+                There some methods to evaluate the quality of the algorithm:
+                \begin{enumerate}
+                    \item Visual inspection of the signal;
+                    \item Comparison of the averaged signal with the original signal;
+                    \item Evaluating the correlation between the original signal and the averaged signal;
+                    \item Evaluating the gradient variance and covariance of the original signal and the averaged signal.
+                \end{enumerate}
+                \begin{figure}[ht]
+                    \centering
+                    \includegraphics[width=1\textwidth]{images/WMA_ex_2.png} % Replace "path/to/your/image" with the actual path to your image file
+                    \caption{In top chart the variance of original signal is shown with variance of = 566.397,
+                    in the bottom chart the variance of signal averaged with WMA with K = 30 and L = 10 is shown with variance of = 19.677.}
+                \label{fig:WMA_ex_2}
+                \end{figure}
+
+                As depicted in figure \ref{fig:WMA_ex_2}, the variance of the signal is reduced by the weighted moving average algorithm.
+                The gradient of the signal variance, can help to evaluate if the smoothness of the signal fits the requirements.
+                The gradient of the variance can be calculated as:
+                \begin{gather}
+                    \Delta f = \frac{f_{n+1} - f_n}{f_n}
+                \end{gather}
+
+                To evaluate if the averaged signal retains the trends, the correlation between the original signal and the averaged signal 
+                can be calculated. The correlation can be calculated as:
+                \begin{gather}
+                    \rho = \frac{cov(f,g)}{\sqrt{var(f)var(g)}}
+                \end{gather}
+
+                \begin{table}[ht]
+                    \centering
+                    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+                        \hline
+                        \textbf{K/L} & \textbf{10} & \textbf{20} & \textbf{30} & \textbf{40} & \textbf{50} \\
+                        \hline
+                        \textbf{1} & & & \\
+                        \hline
+                        \textbf{2} & & & \\
+                        \hline
+                        \textbf{3} & & & \\
+                        \hline
+                    \end{tabular}
+                    \caption{Weighted Moving Average Parameters}
+                    \label{tab:WMA_parameters}
+                \end{table}
 
 
 
-\begin{lstlisting}[caption={Pagrindinio metodo žingsniai},label={abc}]
-public static void main(String args[]){
-}
-\end{lstlisting}
-
- %Conclusions section
-\sectionWithoutNumber{\keyWordConclusions}{conclu}
-\input{conclusions.tex}
-
-%ateities darbų gairės, planas/next steps of the work
-\sectionWithoutNumber{Ateities tyrimų planas}{future}{Pristatomi ateities darbai ir/ar jų planas, gairės tolimesniems darbams....}
-
-
- %file literatureSources.bib
-\referenceSources{literatureSources}
+             
 
 
 
-%% this part is optional
-%% uncomment if needed appendix
-% \newpage
-% \begin{appendices}
-% Dokumentą sudaro du priedai: \ref{app:a} priede  ....
-% \newpage
-% \section{Pirmojo priedo pavadinimas}
-% \label{app:a}
-% Pirmojo priedo tekstas ...
-% \newpage
-% \section{Antrojo priedo pavadinimas}
-% Antrojo priedo tekstas ...
-% \end{appendices}
-
-
-\end{document}
+        \newpage
+        \begin{thebibliography}{99}
+        \bibitem{SP500} S\&P Dow Jones Indices LLC, S\&P 500 [SP500], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/SP500, 
+        \bibitem{citekey} Author, Title, Year
+        \end{thebibliography}
+         \end{document}
