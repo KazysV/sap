@@ -4,7 +4,7 @@
 % comments/bug fixes send to template authors: Linas Bukauskas or Agnė Brilingaitė
 \documentclass[a4paper,12pt,fleqn]{article}
 \input{allPacks}
-
+\usepackage{graphicx}
 \newtoggle{inLithuanian}
  %If the report is in Lithuanian, it is set to true; otherwise, change to false
 \settoggle{inLithuanian}{false}
@@ -256,27 +256,105 @@ Given that we have a digital signal \begin{math}
 
                 \begin{table}[ht]
                     \centering
-                    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+                    \begin{tabular}{|c|c|c|c|c|c|}
                         \hline
-                        \textbf{K/L} & \textbf{10} & \textbf{20} & \textbf{30} & \textbf{40} & \textbf{50} \\
+                        & \textbf{K=7} & \textbf{K=30} & \textbf{K=90} & \textbf{K=180} & \textbf{K=360} \\
                         \hline
-                        \textbf{1} & & & \\
+                        \textbf{L=1} &0.951&0.814 &0.583 &0.391 &0.209 \\
                         \hline
-                        \textbf{2} & & & \\
+                        \textbf{L=5} &0.951 &0.815 &0.583&0.395 &0.221\\
                         \hline
-                        \textbf{3} & & & \\
+                        \textbf{L=10} &0.951 &0.815 &0.583&0.396 &0.224 \\
+                        \hline
+                        \textbf{L=20} &0.951 &0.815 &0.583&0.397&0.227 \\
+                        \hline
+                        \textbf{L=30} &0.951 &0.816 &0.583& 0.397&0.229 \\
+                        \hline
+                        \textbf{L=50} &0.951 &0.816 &0.584 &0.398 &0.231 \\
                         \hline
                     \end{tabular}
-                    \caption{Weighted Moving Average Parameters}
-                    \label{tab:WMA_parameters}
+                    \caption{Matrix of WMA parameters K and L impact on correlation}
+                    \label{tab:KL_values}
                 \end{table}
 
+                As could be seen from the table \ref{tab:KL_values}, the correlation between the original signal and the averaged signal
+                is dependant on the parameter \begin{math}
+                    K
+                \end{math}. The parameter \begin{math}
+                    L
+                    \end{math} has negligible impact on the correlation.
 
+                \begin{figure}[ht]
+                    \centering
+                    \includegraphics[width=1\textwidth]{images/WMA_ex_3.png} % Replace "path/to/your/image" with the actual path to your image file
+                    \caption{S\&P 500 signal from 2014 to 2024 overlayed with signal averaged with WMA with K = 30 and L = 10}
+                    \label{fig:WMA_ex_3}
+                \end{figure}
+\newpage
+                \subsection{Averaging signal with EMA}
 
-             
+                \hspace{1 em} EMA has only one parameter \begin{math}
+                    \alpha
+                \end{math}, which is the weight of the new value in the signal. However, it retains the same
+                issues as WMA - if the weight is not chosen correctly, the algorithm can lag behind the signal, be too smooth or retain too much noise.
 
+                \begin{figure}[ht]
+                    \centering
+                    \includegraphics[width=1\textwidth]{images/EMA_ex_1.png} % Replace "path/to/your/image" with the actual path to your image file
+                    \caption{On top left chart original signal is shown, on top right chart EMA is applied with $\alpha = 0.1$, on bottom left chart EMA is applied with $\alpha = 0.01$, on bottom right chart EMA is applied with $\alpha = 0.001$.}
+                    \label{fig:EMA_ex_1}
 
+                \end{figure}
 
+                As can be seen from the figure \ref{fig:EMA_ex_1}, the smaller the \begin{math}
+                    \alpha
+                \end{math} the smoother the signal gets and lag occurs.
+
+                Although the EMA algorithm has only one parameter and is more difficult to fine tune, but it has an 
+                advantage over the WMA algorithm - it does not require all the values in the window to calculate the new average value. And 
+                even next value can be predicted if previous value is known.
+                \newpage
+                \subsection{Qualitative analysis of EMA}
+
+                The EMA algortithm tends to be more tough for fine tuning, but the same evaluation techniques can
+                be adapted for EMA as for WMA. The correlation between the original signal and the averaged signal can be calculated as:
+                
+                \begin{table}[ht]
+                    \centering
+                    \begin{tabular}{|c|c|c|}
+                        \hline
+                        Alpha & Covariance & Correlation \\
+                        \hline
+                        0.1 & 51.67 & 0.997\\
+                        0.08 & 40.53 & 0.996 \\
+                        0.06& 29.38 & 0.995 \\
+                        0.04& 18.43& 0.993 \\
+                        0.02& 8.29 & 0.988 \\
+                        0.01& 3.72 & 0.979 \\
+                        0.005& 1.50 & 0.967 \\
+                        0.001 & 0.22 & 0.944 \\
+                       
+                        \hline
+                    \end{tabular}
+                    \caption{Covariance and correlation between original signal and signal averaged with EMA with different $\alpha$ values}
+                    \label{tab:correlation_covariance}
+                \end{table}
+                
+            As can be seen from the table \ref{tab:correlation_covariance}, the EMA algorithm tends to retain 
+            the trend of the signal better than the WMA algorithm. However, the signal gets smooth in a very short increments of the parameter change.
+
+            \begin{figure}[ht]
+                \centering
+                \includegraphics[width=1\textwidth]{images/EMA_ex_2.png} % Replace "path/to/your/image" with the actual path to your image file
+                \caption{S\&P 500 signal from 2014 to 2024 overlayed with signal averaged with EMA with $\alpha= 0.06$ on the left side
+                and with $\alpha= 0.01$ on the right side.}
+                \label{fig:EMA_ex_2}
+            \end{figure}
+
+            As can be seen from the figure \ref{fig:EMA_ex_2}, EMA algorithm also tends to lag behind the signal when the
+            parameter \begin{math}
+                \alpha
+                \end{math} is too small.
         \newpage
         \begin{thebibliography}{99}
         \bibitem{SP500} S\&P Dow Jones Indices LLC, S\&P 500 [SP500], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/SP500, 
