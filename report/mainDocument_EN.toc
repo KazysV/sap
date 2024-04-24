@@ -5,10 +5,15 @@
 \contentsline {subsection}{\numberline {2.2}Weighted Moving Average algorithm}{3}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Exponential Moving Average algorithm}{4}{subsection.2.3}%
 \contentsline {subsection}{\numberline {2.4}Signal for the algorithm analysis}{5}{subsection.2.4}%
-\contentsline {section}{\numberline {3}Analysis}{6}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Averaging signal with WMA}{6}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Qualitative analysis of WMA}{7}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Averaging signal with EMA}{9}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Qualitative analysis of EMA}{10}{subsection.3.4}%
-\contentsline {subsection}{\numberline {3.5}Examples with other signals}{11}{subsection.3.5}%
-\contentsline {section}{\numberline {4}Conclusion}{13}{section.4}%
+\contentsline {section}{\numberline {3}Implementation}{6}{section.3}%
+\contentsline {subsection}{\numberline {3.1}WMA. Weights}{6}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}WMA. Algorithm}{7}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}EMA. Algorithm}{7}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Analysis}{8}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Averaging signal with WMA}{8}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Qualitative analysis of WMA}{9}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Averaging signal with EMA}{11}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Qualitative analysis of EMA}{12}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Execution times}{13}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}Examples with other signals}{14}{subsection.4.6}%
+\contentsline {section}{\numberline {5}Conclusion}{17}{section.5}%

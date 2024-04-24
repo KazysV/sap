@@ -40,40 +40,51 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Signal for the algorithm analysis}{5}{subsection.2.4}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces S\&P 500 index signal from 2014 to 2024\relax }}{5}{figure.caption.3}\protected@file@percent }
 \newlabel{fig:SP500}{{2}{5}{S\&P 500 index signal from 2014 to 2024\relax }{figure.caption.3}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Analysis}{6}{section.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Averaging signal with WMA}{6}{subsection.3.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Short caption for the list of figures}}{6}{figure.caption.4}\protected@file@percent }
-\newlabel{fig:WMA_ex_1}{{3}{6}{Short caption for the list of figures}{figure.caption.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Qualitative analysis of WMA}{7}{subsection.3.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces In top chart the variance of original signal is shown with variance of = 566.397, in the bottom chart the variance of signal averaged with WMA with K = 30 and L = 10 is shown with variance of = 19.677.\relax }}{7}{figure.caption.5}\protected@file@percent }
-\newlabel{fig:WMA_ex_2}{{4}{7}{In top chart the variance of original signal is shown with variance of = 566.397, in the bottom chart the variance of signal averaged with WMA with K = 30 and L = 10 is shown with variance of = 19.677.\relax }{figure.caption.5}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Matrix of WMA parameters K and L impact on correlation\relax }}{8}{table.caption.6}\protected@file@percent }
-\newlabel{tab:KL_values}{{1}{8}{Matrix of WMA parameters K and L impact on correlation\relax }{table.caption.6}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces S\&P 500 signal from 2014 to 2024 overlayed with signal averaged with WMA with K = 30 and L = 10\relax }}{8}{figure.caption.7}\protected@file@percent }
-\newlabel{fig:WMA_ex_3}{{5}{8}{S\&P 500 signal from 2014 to 2024 overlayed with signal averaged with WMA with K = 30 and L = 10\relax }{figure.caption.7}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Averaging signal with EMA}{9}{subsection.3.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces On top left chart original signal is shown, on top right chart EMA is applied with $\alpha = 0.1$, on bottom left chart EMA is applied with $\alpha = 0.01$, on bottom right chart EMA is applied with $\alpha = 0.001$.\relax }}{9}{figure.caption.8}\protected@file@percent }
-\newlabel{fig:EMA_ex_1}{{6}{9}{On top left chart original signal is shown, on top right chart EMA is applied with $\alpha = 0.1$, on bottom left chart EMA is applied with $\alpha = 0.01$, on bottom right chart EMA is applied with $\alpha = 0.001$.\relax }{figure.caption.8}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Qualitative analysis of EMA}{10}{subsection.3.4}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Covariance and correlation between original signal and signal averaged with EMA with different $\alpha $ values\relax }}{10}{table.caption.9}\protected@file@percent }
-\newlabel{tab:correlation_covariance}{{2}{10}{Covariance and correlation between original signal and signal averaged with EMA with different $\alpha $ values\relax }{table.caption.9}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces S\&P 500 signal from 2014 to 2024 overlayed with signal averaged with EMA with $\alpha = 0.06$ on the left side and with $\alpha = 0.01$ on the right side.\relax }}{10}{figure.caption.10}\protected@file@percent }
-\newlabel{fig:EMA_ex_2}{{7}{10}{S\&P 500 signal from 2014 to 2024 overlayed with signal averaged with EMA with $\alpha = 0.06$ on the left side and with $\alpha = 0.01$ on the right side.\relax }{figure.caption.10}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Implementation}{6}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}WMA. Weights}{6}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}WMA. Algorithm}{7}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}EMA. Algorithm}{7}{subsection.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}Analysis}{8}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Averaging signal with WMA}{8}{subsection.4.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Short caption for the list of figures}}{8}{figure.caption.4}\protected@file@percent }
+\newlabel{fig:WMA_ex_1}{{3}{8}{Short caption for the list of figures}{figure.caption.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Qualitative analysis of WMA}{9}{subsection.4.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces In top chart the variance of original signal is shown with variance of = 566.397, in the bottom chart the variance of signal averaged with WMA with K = 30 and L = 10 is shown with variance of = 19.677.\relax }}{9}{figure.caption.5}\protected@file@percent }
+\newlabel{fig:WMA_ex_2}{{4}{9}{In top chart the variance of original signal is shown with variance of = 566.397, in the bottom chart the variance of signal averaged with WMA with K = 30 and L = 10 is shown with variance of = 19.677.\relax }{figure.caption.5}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Matrix of WMA parameters K and L impact on correlation\relax }}{10}{table.caption.6}\protected@file@percent }
+\newlabel{tab:KL_values}{{1}{10}{Matrix of WMA parameters K and L impact on correlation\relax }{table.caption.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces S\&P 500 signal from 2014 to 2024 overlayed with signal averaged with WMA with K = 30 and L = 10\relax }}{10}{figure.caption.7}\protected@file@percent }
+\newlabel{fig:WMA_ex_3}{{5}{10}{S\&P 500 signal from 2014 to 2024 overlayed with signal averaged with WMA with K = 30 and L = 10\relax }{figure.caption.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Averaging signal with EMA}{11}{subsection.4.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces On top left chart original signal is shown, on top right chart EMA is applied with $\alpha = 0.1$, on bottom left chart EMA is applied with $\alpha = 0.01$, on bottom right chart EMA is applied with $\alpha = 0.001$.\relax }}{11}{figure.caption.8}\protected@file@percent }
+\newlabel{fig:EMA_ex_1}{{6}{11}{On top left chart original signal is shown, on top right chart EMA is applied with $\alpha = 0.1$, on bottom left chart EMA is applied with $\alpha = 0.01$, on bottom right chart EMA is applied with $\alpha = 0.001$.\relax }{figure.caption.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Qualitative analysis of EMA}{12}{subsection.4.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Covariance and correlation between original signal and signal averaged with EMA with different $\alpha $ values\relax }}{12}{table.caption.9}\protected@file@percent }
+\newlabel{tab:correlation_covariance}{{2}{12}{Covariance and correlation between original signal and signal averaged with EMA with different $\alpha $ values\relax }{table.caption.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces S\&P 500 signal from 2014 to 2024 overlayed with signal averaged with EMA with $\alpha = 0.06$ on the left side and with $\alpha = 0.01$ on the right side.\relax }}{12}{figure.caption.10}\protected@file@percent }
+\newlabel{fig:EMA_ex_2}{{7}{12}{S\&P 500 signal from 2014 to 2024 overlayed with signal averaged with EMA with $\alpha = 0.06$ on the left side and with $\alpha = 0.01$ on the right side.\relax }{figure.caption.10}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Execution times}{13}{subsection.4.5}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Execution times for WMA with parameters L = 5 and K = 20 and EMA with parameter $\alpha $ = 0.05 algorithms in seconds\relax }}{13}{table.caption.11}\protected@file@percent }
+\newlabel{tab:execution_times}{{3}{13}{Execution times for WMA with parameters L = 5 and K = 20 and EMA with parameter $\alpha $ = 0.05 algorithms in seconds\relax }{table.caption.11}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces WMA execution time dependance on K parameter. In this example signal with length N = 10000 and parameter L = 5\relax }}{13}{table.caption.12}\protected@file@percent }
+\newlabel{tab:WMA_execution_time}{{4}{13}{WMA execution time dependance on K parameter. In this example signal with length N = 10000 and parameter L = 5\relax }{table.caption.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces WMA execution time dependance on K parameter\relax }}{13}{figure.caption.13}\protected@file@percent }
+\newlabel{fig:execution_time}{{8}{13}{WMA execution time dependance on K parameter\relax }{figure.caption.13}{}}
 \citation{ECG}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Examples with other signals}{14}{subsection.4.6}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces On most left chart the original ECG signal is presented, in the middle chart the ECG signal is averaged with WMA parameters L = 30 K = 150, on the most right, an ECG signal is averaged with EMA $\alpha $ = 0.01\relax }}{14}{figure.caption.14}\protected@file@percent }
+\newlabel{fig:ECG}{{9}{14}{On most left chart the original ECG signal is presented, in the middle chart the ECG signal is averaged with WMA parameters L = 30 K = 150, on the most right, an ECG signal is averaged with EMA $\alpha $ = 0.01\relax }{figure.caption.14}{}}
 \citation{PSAVERT}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Examples with other signals}{11}{subsection.3.5}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces On most left chart the original ECG signal is presented, in the middle chart the ECG signal is averaged with WMA parameters L = 30 K = 150, on the most right, an ECG signal is averaged with EMA $\alpha $ = 0.01\relax }}{11}{figure.caption.11}\protected@file@percent }
-\newlabel{fig:ECG}{{8}{11}{On most left chart the original ECG signal is presented, in the middle chart the ECG signal is averaged with WMA parameters L = 30 K = 150, on the most right, an ECG signal is averaged with EMA $\alpha $ = 0.01\relax }{figure.caption.11}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces On most left chart the original signal of personal saving rates in the USA is presented, in the middle chart the signal is averaged with WMA parameters L = 5 K = 20, on the most right, the signal is averaged with EMA $\alpha $ = 0.05\relax }}{11}{figure.caption.12}\protected@file@percent }
-\newlabel{fig:PSAVERT}{{9}{11}{On most left chart the original signal of personal saving rates in the USA is presented, in the middle chart the signal is averaged with WMA parameters L = 5 K = 20, on the most right, the signal is averaged with EMA $\alpha $ = 0.05\relax }{figure.caption.12}{}}
 \citation{PETROL}
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces On most left chart the original signal of weekly petrol prices in Italy is presented, in the middle chart the signal is averaged with WMA parameters L = 24 K = 52, on the most right, the signal is averaged with EMA $\alpha $ = 0.03\relax }}{12}{figure.caption.13}\protected@file@percent }
-\newlabel{fig:PETROL}{{10}{12}{On most left chart the original signal of weekly petrol prices in Italy is presented, in the middle chart the signal is averaged with WMA parameters L = 24 K = 52, on the most right, the signal is averaged with EMA $\alpha $ = 0.03\relax }{figure.caption.13}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces On most left chart the original random signal is presented, in the middle chart the signal is averaged with WMA parameters L = 20 K = 25, on the most right, the signal is averaged with EMA $\alpha $ = 0.05\relax }}{12}{figure.caption.14}\protected@file@percent }
-\newlabel{fig:RANDOM}{{11}{12}{On most left chart the original random signal is presented, in the middle chart the signal is averaged with WMA parameters L = 20 K = 25, on the most right, the signal is averaged with EMA $\alpha $ = 0.05\relax }{figure.caption.14}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Conclusion}{13}{section.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces On most left chart the original signal of personal saving rates in the USA is presented, in the middle chart the signal is averaged with WMA parameters L = 5 K = 20, on the most right, the signal is averaged with EMA $\alpha $ = 0.05\relax }}{15}{figure.caption.15}\protected@file@percent }
+\newlabel{fig:PSAVERT}{{10}{15}{On most left chart the original signal of personal saving rates in the USA is presented, in the middle chart the signal is averaged with WMA parameters L = 5 K = 20, on the most right, the signal is averaged with EMA $\alpha $ = 0.05\relax }{figure.caption.15}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces On most left chart the original signal of weekly petrol prices in Italy is presented, in the middle chart the signal is averaged with WMA parameters L = 24 K = 52, on the most right, the signal is averaged with EMA $\alpha $ = 0.03\relax }}{15}{figure.caption.16}\protected@file@percent }
+\newlabel{fig:PETROL}{{11}{15}{On most left chart the original signal of weekly petrol prices in Italy is presented, in the middle chart the signal is averaged with WMA parameters L = 24 K = 52, on the most right, the signal is averaged with EMA $\alpha $ = 0.03\relax }{figure.caption.16}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces On most left chart the original random signal is presented, in the middle chart the signal is averaged with WMA parameters L = 20 K = 25, on the most right, the signal is averaged with EMA $\alpha $ = 0.05\relax }}{16}{figure.caption.17}\protected@file@percent }
+\newlabel{fig:RANDOM}{{12}{16}{On most left chart the original random signal is presented, in the middle chart the signal is averaged with WMA parameters L = 20 K = 25, on the most right, the signal is averaged with EMA $\alpha $ = 0.05\relax }{figure.caption.17}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Conclusion}{17}{section.5}\protected@file@percent }
 \bibcite{SP500}{1}
 \bibcite{ECG}{2}
 \bibcite{PSAVERT}{3}
 \bibcite{PETROL}{4}
-\gdef \@abspage@last{14}
+\gdef \@abspage@last{18}

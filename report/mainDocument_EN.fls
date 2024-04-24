@@ -1,9 +1,9 @@
-PWD /home/kv/studies/sap/report
+PWD /home/kazimieras/studies/sap/report
 INPUT /etc/texmf/web2c/texmf.cnf
 INPUT /usr/share/texmf/web2c/texmf.cnf
 INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
 INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
-INPUT /home/kv/studies/sap/report/mainDocument_EN.tex
+INPUT /home/kazimieras/studies/sap/report/mainDocument_EN.tex
 OUTPUT mainDocument_EN.log
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -1059,10 +1059,6 @@ INPUT ./jb_VU_zenklas.pdf
 INPUT ./jb_VU_zenklas.pdf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/stix/t1-stixgeneral-bold.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/stix/t1-stixgeneral-bold.tfm
-INPUT /usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-1.def
-INPUT /usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-1.def
-INPUT /usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-1.def
-INPUT /usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-1.def
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/stix/t1-stixgeneral-bold.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/stix/stix-mathrm.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/stix/stix-mathrm.tfm
@@ -1160,6 +1156,13 @@ INPUT ./images/SP500.png
 INPUT images/SP500.png
 INPUT ./images/SP500.png
 INPUT ./images/SP500.png
+INPUT /usr/share/texlive/texmf-dist/tex/latex/courier/t1ucr.fd
+INPUT /usr/share/texlive/texmf-dist/tex/latex/courier/t1ucr.fd
+INPUT /usr/share/texlive/texmf-dist/tex/latex/courier/t1ucr.fd
+INPUT /usr/share/texlive/texmf-dist/tex/latex/courier/t1ucr.fd
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/urw35vf/courier/ucrr8t.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/vf/urw35vf/courier/ucrr8t.vf
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/urw35vf/courier/ucrr8r.tfm
 INPUT ./images/WMA_ex_1.png
 INPUT ./images/WMA_ex_1.png
 INPUT images/WMA_ex_1.png
@@ -1185,6 +1188,11 @@ INPUT ./images/EMA_ex_2.png
 INPUT images/EMA_ex_2.png
 INPUT ./images/EMA_ex_2.png
 INPUT ./images/EMA_ex_2.png
+INPUT ./images/WMA_exec_time.png
+INPUT ./images/WMA_exec_time.png
+INPUT images/WMA_exec_time.png
+INPUT ./images/WMA_exec_time.png
+INPUT ./images/WMA_exec_time.png
 INPUT /usr/share/texlive/texmf-dist/tex/latex/stix/ts1stix.fd
 INPUT /usr/share/texlive/texmf-dist/tex/latex/stix/ts1stix.fd
 INPUT /usr/share/texlive/texmf-dist/tex/latex/stix/ts1stix.fd
@@ -1214,6 +1222,7 @@ INPUT mainDocument_EN.aux
 INPUT ./mainDocument_EN.out
 INPUT ./mainDocument_EN.out
 INPUT /usr/share/texlive/texmf-dist/fonts/enc/dvips/stix/stix-ts1.enc
+INPUT /usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc
 INPUT /usr/share/texlive/texmf-dist/fonts/enc/dvips/stix/stix-t1.enc
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-Bold.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-Regular.pfb
@@ -1222,3 +1231,4 @@ INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathex.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathit.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathrm-bold.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathrm.pfb
+INPUT /usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb
