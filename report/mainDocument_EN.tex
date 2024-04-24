@@ -161,15 +161,8 @@ Given that we have a digital signal \begin{math}
         As can be seen from figure \ref{fig:SP500}, the value of the index have increased over 2.5 times in the
         period of 10 years. The signal has high volatility, which is good for the analysis of moving average algorithms.
         
-        For demonstration purposes, these signals will be also used in the project:
-        \begin{enumerate}
-            \item signal 1
-            \item signal 2
-            \item signal 3
-            \item signal 4
-        \end{enumerate}
         
-        See the related charts in the section 4 of the assignment.
+        
         \newpage
         \section{Analysis}
 
@@ -355,9 +348,62 @@ Given that we have a digital signal \begin{math}
             parameter \begin{math}
                 \alpha
                 \end{math} is too small.
+                \newpage
+                \subsection{Examples with other signals}
+
+                \hspace{1em} To demonstrate the moving average algorithms versatilty, examples with other
+                signals that are based on other domains will be shown. 
+                \begin{itemize}
+                    \item Signal 1 - ECG signal\cite{ECG} - the signal is just a demonstrattive representation of the ECG signal, i.e. this is not real,but
+                    generated data.
+                    \begin{figure}[ht]
+                        \centering
+                        \includegraphics[width=1\textwidth]{images/ECG.png} % Replace "path/to/your/image" with the actual path to your image file
+                        \caption{On most left chart the original ECG signal is presented, in the middle chart the ECG signal is averaged with WMA parameters L = 30 K = 150, on the most right, an ECG signal is averaged with EMA $\alpha$ = 0.01}
+                        \label{fig:ECG}
+                    \end{figure}
+                    Due to the length of the signal, only a part of the signal is shown in the figure \ref{fig:ECG}. The ECG signal is a good example of the signal that has a lot of noise, and the moving average algorithms can be used to smooth out the signal.
+                    \item Signal 2 - Personal saving rates in the USA\cite{PSAVERT} - the signal represents the percentage of persons income deduced to savings.
+                    \begin{figure}[ht]
+                        \centering
+                        \includegraphics[width=1\textwidth]{images/PSAVERT.png} % Replace "path/to/your/image" with the actual path to your image file
+                        \caption{On most left chart the original signal of personal saving rates in the USA is presented, in 
+                        the middle chart the signal is averaged with WMA parameters L = 5 K = 20, on the most right, the signal is averaged with EMA $\alpha$ = 0.05}
+                        \label{fig:PSAVERT}
+                    \end{figure}
+
+                    As could be seen from the figure \ref{fig:PSAVERT}, the signal when averaged manages retain the
+                    trend, however, it cuts short the 2020 peak.
+\newpage
+                    \item Signal 3 - weekly petrol prices in Italy\cite{PETROL}
+                    \begin{figure}[ht]
+                        \centering
+                        \includegraphics[width=1\textwidth]{images/FUEL_PRICE_ITALY.png} % Replace "path/to/your/image" with the actual path to your image file
+                        \caption{On most left chart the original signal of weekly petrol prices in Italy is presented, in 
+                        the middle chart the signal is averaged with WMA parameters L = 24 K = 52, on the most right, the signal is averaged with EMA $\alpha$ = 0.03}
+                        \label{fig:PETROL}
+                    \end{figure}
+
+                    \item Singal 4 - random generated signal.                    
+                    \begin{figure}[ht]
+                        \centering
+                        \includegraphics[width=1\textwidth]{images/random_signal.png} % Replace "path/to/your/image" with the actual path to your image file
+                        \caption{On most left chart the original random signal is presented, in 
+                        the middle chart the signal is averaged with WMA parameters L = 20 K = 25, on the most right, the signal is averaged with EMA $\alpha$ = 0.05}
+                        \label{fig:RANDOM}
+                        
+                    \end{figure}
+                    
+                \end{itemize}
+
+                \newpage
+                \section{Conclusion}
+
         \newpage
         \begin{thebibliography}{99}
         \bibitem{SP500} S\&P Dow Jones Indices LLC, S\&P 500 [SP500], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/SP500, 
-        \bibitem{citekey} Author, Title, Year
-        \end{thebibliography}
+        \bibitem{ECG} ECG signal demo; https://www.kaggle.com/datasets/ahmadsaeed1007/ecg-signal?resource=download
+        \bibitem{PSAVERT}U.S. Bureau of Economic Analysis, Personal Saving Rate [PSAVERT], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/PSAVERT
+        \bibitem{PETROL}Petrol prices in Italy; https://dgsaie.mise.gov.it/open-data
+    \end{thebibliography}
          \end{document}

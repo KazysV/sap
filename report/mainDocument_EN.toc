@@ -10,3 +10,5 @@
 \contentsline {subsection}{\numberline {3.2}Qualitative analysis of WMA}{7}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Averaging signal with EMA}{9}{subsection.3.3}%
 \contentsline {subsection}{\numberline {3.4}Qualitative analysis of EMA}{10}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Examples with other signals}{11}{subsection.3.5}%
+\contentsline {section}{\numberline {4}Conclusion}{13}{section.4}%
