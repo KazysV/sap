@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1713970669 "/home/kazimieras/studies/sap/report/mainDocument_EN.tex" "mainDocument_EN.pdf" "mainDocument_EN" 1713970671
+["pdflatex"] 1713971568 "/home/kazimieras/studies/sap/report/mainDocument_EN.tex" "mainDocument_EN.pdf" "mainDocument_EN" 1713971570
   "/etc/texmf/web2c/texmf.cnf" 1696792737 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/kazimieras/studies/sap/report/mainDocument_EN.tex" 1713970632 28103 37980b17f5ab527246bf50979b391305 ""
+  "/home/kazimieras/studies/sap/report/mainDocument_EN.tex" 1713971567 28537 eda05c1eaac92e3d758fe73906c283a2 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/stix/stix-t1.enc" 1388795362 7013 c55cc8669071ac14036c4a0c96c16202 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/stix/stix-ts1.enc" 1388795362 2836 154e6b0061f9b8cb549144b55b268339 ""
@@ -177,10 +177,10 @@
   "images/weights.png" 1713961388 35836 ba9caab84ffa658f0cfecefa4d330290 ""
   "jb_VU_zenklas.pdf" 1713111492 69873 e1a5b2aadd7aba2c50bffcb71138a56e ""
   "macros.tex" 1713961712 5961 7556b466a76b312d1ac3099720a6105c ""
-  "mainDocument_EN.aux" 1713970671 11209 2185cc5ecff6b416a55724f5b548e940 "pdflatex"
-  "mainDocument_EN.out" 1713970671 3025 f400c7c48ac4a3d6e20002b5e5f978a8 "pdflatex"
-  "mainDocument_EN.tex" 1713970632 28103 37980b17f5ab527246bf50979b391305 ""
-  "mainDocument_EN.toc" 1713970671 1564 a923b525e8c72a3eaa9ebeeaea279f76 "pdflatex"
+  "mainDocument_EN.aux" 1713971570 11209 2185cc5ecff6b416a55724f5b548e940 "pdflatex"
+  "mainDocument_EN.out" 1713971570 3025 f400c7c48ac4a3d6e20002b5e5f978a8 "pdflatex"
+  "mainDocument_EN.tex" 1713971567 28537 eda05c1eaac92e3d758fe73906c283a2 ""
+  "mainDocument_EN.toc" 1713971570 1564 a923b525e8c72a3eaa9ebeeaea279f76 "pdflatex"
   (generated)
   "mainDocument_EN.aux"
   "mainDocument_EN.log"

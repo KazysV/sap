@@ -201,19 +201,25 @@ def get_weights(L,K):
 
 def apply_weights(data, weights):
         weighted_data = 0
+        #sumation of values with appropriate weights
+        
         for i in range(len(data)):
             weighted_data += data[i] * weights[i]
         return weighted_data
 
 def weighted_moving_average(data, L, K):
+    #initializing weights on corresponding values of L,K
     
     K_j,weights,p_j= get_weights(L,K)
+    #initializing array for weighted data
     weighted_data = np.zeros(len(data))
     
+    #iteration through the signal in predefined windows size
     for i in range(K, len(data) - K):
         window_data = data[i - K : i + K + 1]
         weighted_data[i] = apply_weights(window_data, weights)
     
+    #replacing all remaining 0 with NaN values
     weighted_data = np.where(weighted_data == 0, np.nan, weighted_data)
     
     return weighted_data
@@ -221,9 +227,12 @@ def weighted_moving_average(data, L, K):
         \subsection{EMA. Algorithm}
         \begin{verbatim}
 def exponential_moving_average(data, alpha):
+#initializing array for averaged data and setting first value to the first value of the signal
+ 
     averaged_data = np.zeros(len(data))
     averaged_data[0] = data[0]
     
+#applying EMA formula to the signal, starting from the second value
     for i in range(1, len(data)):
         averaged_data[i] = alpha * data[i] + (1 - alpha) * averaged_data[i - 1]
         
