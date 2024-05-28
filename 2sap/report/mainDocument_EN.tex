@@ -1,0 +1,246 @@
+% Kompiuterijos katedros ir kibernetinio saugumo laboratorijos šablonas
+% Template of Department of Computer Science II or cybersecurity laboratory
+% Versija 1.4 2024 m. sausi [ March, 2015]
+% comments/bug fixes send to template authors: Linas Bukauskas or Agnė Brilingaitė
+\documentclass[a4paper,12pt,fleqn]{article}
+\input{allPacks}
+
+\newtoggle{inLithuanian}
+ %If the report is in Lithuanian, it is set to true; otherwise, change to false
+\settoggle{inLithuanian}{false}
+
+%create file preface.tex for the preface text
+%if preface is needed set to true
+\newtoggle{needPreface}
+\settoggle{needPreface}{false}
+
+\newtoggle{signaturesOnTitlePage}
+\settoggle{signaturesOnTitlePage}{false}
+
+\input{macros}
+
+\begin{document}
+ % #1 -report type, #2 - title, #3-7 students, #8 - supervisor
+ \depttitlepage{Course project no. 2}{Fourier filter\\{\small Based on Cooley-Tuckey algorithm}}{Kazimieras Vitkus}{}{}{}{}{Prof. Tadas Meskauskas}
+
+\tableofcontents
+\newpage
+
+\section{Introduction}
+\hspace{1 em}In the realm of digital signal processing, the Fast Fourier Transform (FFT) and its inverse (IFFT) are pivotal algorithms that enable efficient computation of the Discrete Fourier Transform (DFT) and its inverse (IDFT). These mathematical tools transform time-domain signals into their frequency-domain representations and vice versa, offering profound insights into the frequency components of signals. Implementing these transformations from scratch not only deepens the understanding of their mechanics but also highlights the computational optimizations that FFT introduces over the traditional DFT.
+
+This report details the implementation of FFT, IFFT, DFT, and IDFT algorithms from the ground up. We will explore how these algorithms can be utilized for high-pass and low-pass filtering, allowing us to isolate and analyze specific frequency components within sound signals. By filtering and examining these signals, we gain a better understanding of the underlying structures and characteristics of different audio samples.
+
+\section{Algorithm implementation}
+
+\subsection{Discrete Fourier Transform (DFT)}
+
+\hspace{1 em}The Discrete Fourier Transform (DFT) is a mathematical operation that transforms a finite sequence of equally spaced samples of a function into a sequence of complex numbers. The DFT is defined by the formula:
+
+\begin{equation}
+    C_k = \sum_{j=0}^{N-1} f_j \cdot e^{-\frac{2\pi i}{N}kn}
+\end{equation}
+  
+  where $f_j$ is the input signal, $C_k$ is the output signal, and $N$ is the number of samples in the input signal. The DFT algorithm computes the frequency components of the input signal by summing the product of each sample with a complex exponential function.
+  In my implementation, I used the following Python code to calculate the DFT of an input signal:
+
+\begin{lstlisting}[language=Python]
+def dft(signal):
+  
+  N = len(signal)
+  
+  C_k = np.zeros(N, dtype=np.complex_)
+  
+  for k in range(N):
+      
+      for n in range(N):
+          C_k[k] += signal[n] * np.exp(-2j * np.pi * k * n / N)
+      
+      C_k[k] /= N
+  return C_k
+\end{lstlisting}
+
+\newpage
+for the inverse DFT, we can use the following code:
+\begin{lstlisting}[language=Python]
+def idft(signal):
+  
+  N = len(signal)
+  
+  f_j = np.zeros(N, dtype=np.complex_)
+  
+  for j in range(N):
+      
+      for k in range(N):
+          f_j[j] += signal[k] * np.exp(2j * np.pi * k * j / N)
+      
+  return f_j
+\end{lstlisting}
+
+\subsection{Fast Fourier Transform (FFT)}
+
+\hspace{1 em}The Fast Fourier Transform (FFT) is an algorithm that computes the Discrete Fourier Transform (DFT) of a sequence of complex numbers. The FFT is an optimized version of the DFT that reduces the number of arithmetic operations required to compute the DFT from $O(N^2)$ to $O(N \log N)$. The Cooley-Tukey algorithm is a popular implementation of the FFT that recursively divides the input sequence into smaller sub-sequences and combines the results to compute the DFT.
+
+In my implementation, I used the following Python code to calculate the FFT of an input signal:
+\begin{lstlisting}[language=Python]
+def fft(signal):
+  N = len(signal)
+  
+  if N <= 1:
+      return signal
+      
+  fft_even = fft(signal[::2])
+  fft_odd = fft(signal[1::2])
+  
+  k = np.arange(N // 2)
+  W_n_k = np.exp(-2j * np.pi * k / N)
+  
+  A_k = fft_even
+  B_k = fft_odd * W_n_k
+  
+  C_k = np.zeros(N, dtype=np.complex_)
+  C_k[:N // 2] = A_k + B_k
+  C_k[N // 2:] = A_k - B_k
+  
+  return C_k 
+  
+\end{lstlisting}
+\newpage
+For the inverse FFT, we can use the following code:
+
+\begin{lstlisting}[language=Python]
+def ifft(signal):
+N = len(signal)
+
+if N <= 1:
+    return signal
+
+ifft_even = ifft(signal[::2])
+ifft_odd = ifft(signal[1::2])
+
+k = np.arange(N // 2)
+W_n_k = np.exp(2j * np.pi * k / N)
+
+A_k = ifft_even
+B_k = ifft_odd * W_n_k
+
+f_j = np.zeros(N, dtype=np.complex_)
+f_j[:N // 2] = A_k + B_k
+f_j[N // 2:] = A_k - B_k
+
+return f_j / N
+
+
+
+
+\end{lstlisting}
+
+
+\section{Analysis of algorithms and implementation}
+
+\subsection{Comparison of DFT and FFT}
+
+\hspace{1 em}In theory and practice, the Fast Fourier Transform (FFT) is significantly 
+faster than the Discrete Fourier Transform (DFT) for computing the frequency components 
+of a signal. The FFT algorithm reduces the number of arithmetic operations required 
+to compute the DFT from $O(N^2)$ to $O(N \log N)$, making it much more efficient for 
+large input signals. For the example of comparison, signal was generated using numpy
+random function with length varying from $2^2$ to $2^7$.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{dft_vs_fft.png}
+    \caption{Comparison of computation time between DFT and FFT}
+    \label{fig:fft_vs_dft}
+\end{figure}
+
+As can be seen in figure \ref{fig:fft_vs_dft}, the FFT algorithm is significantly faster. 
+The trend line for DFT seems to be increasing exponentially, while the FFT trend line
+is almost linear. This demonstrates the computational efficiency of the FFT algorithm
+compared to the DFT algorithm. However, the chart may vary depending on the length of 
+the input signal used for comparison.
+
+\subsection{Comparison of FFT from scratch and numpy FFT}
+
+\hspace{1 em}The numpy library provides a built-in FFT function that is highly optimized
+and efficient for computing the Discrete Fourier Transform (DFT) of a signal. In this
+section, we compare the performance of the FFT algorithm implemented from scratch with
+the numpy FFT function. The signal was generated using numpy random function with length
+varying from $2^2$ to $2^{16}$.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{np_fft_fft.png}
+    \caption{Comparison of computation time between FFT from scratch and numpy FFT}
+    \label{fig:fft_vs_numpy_fft}
+\end{figure}
+
+As can be seen in figure \ref{fig:fft_vs_numpy_fft}, the numpy FFT function is significantly
+faster than the FFT algorithm implemented from scratch. After certain length of the input, implementation
+from scratch seems to differ exponentially in computation times. It means, implementation quality is
+suboptimal and needs to be improved.
+
+\subsection{Fitting requirements for algorithm reduces performance}
+
+\hspace{1 em} One of requirements for signal that needs to be processed with FFT - 
+it's length must be a power of 2. One of the provided solutions - zero padding, which
+means adding zeros to the end of the signal to make it's length a power of 2. However,
+this solution may reduce the performance of the FFT algorithm. In this section, we compare
+the performance of the FFT algorithm with and without zero padding. The signal was generated
+using numpy random function with length varying from $2^2$ to $2^{16}$ and for comparison, one signal has
+$0$ appended to invoke zero padding function.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{zerop_fft_fft.png}
+    \caption{Comparison of computation time between FFT with and without zero padding}
+    \label{fig:zero_padding}
+\end{figure}
+
+As can be seen in figure \ref{fig:zero_padding}, the signal, that invokes zero padding, takes 
+more time to compute the FFT algorithm. The relation between computation times, is that if zero padding
+was invoked, the computation equals to the computation time of signal with length $2^{k+1}$.
+
+
+\section{Audio signal filtering}
+
+\hspace{1 em} For the demonstration of the Fourier filter, we will use a sample audio signal.
+The signal was downloaded from the following website: \url{https://freesound.org/people/InspectorJ/sounds/412067/}.
+
+The signal in an unprocessed form is presented in figure \ref{fig:unprocessed_signal}. 
+It is based on framerate of 44100 Hz and has 2 channels. The signal consists of 115327 frames and is of 2.5 seconds duration.
+The signal is not compressed and saved in the wave (WAV) format.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{unprocessed_signal.png}
+    \caption{Unprocessed audio signal}
+    \label{fig:unprocessed_signal}
+\end{figure}
+
+The power spectrum of the signal is presented in figure \ref{fig:power_spectrum}. The power spectrum
+shows the frequency components of the signal. The x-axis represents the frequency in Hz, while the y-axis
+represents the power of the signal at each frequency in decibels (logarithmic scale). The power spectrum provides insights into the frequency
+components of the signal and can be used to identify specific frequency ranges for filtering.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{frequency_domain.png}
+    \caption{Power spectrum of the audio signal}
+    \label{fig:power_spectrum}
+\end{figure}
+
+\subsection{High-pass filtering}
+
+\hspace{1 em} High-pass filtering is a signal processing technique that allows high-frequency components of a signal to pass through while attenuating low-frequency components. In this section, we will implement a high-pass filter using the Fourier transform and apply it to the audio signal.
+In the scope of this task, prebuilt function was made, that takes in signal and frequency that is The
+threshold frequency for the high-pass filter. The function returns the filtered signal.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\textwidth]{high_pass_filter.png}
+    \caption{High-pass filtered audio signal}
+    \label{fig:high_pass_filter}
+\end{figure}
+\end{document}
+
