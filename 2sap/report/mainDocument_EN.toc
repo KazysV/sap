@@ -8,4 +8,12 @@
 \contentsline {subsection}{\numberline {3.2}Comparison of FFT from scratch and numpy FFT}{6}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Fitting requirements for algorithm reduces performance}{6}{subsection.3.3}%
 \contentsline {section}{\numberline {4}Audio signal filtering}{7}{section.4}%
-\contentsline {subsection}{\numberline {4.1}High-pass filtering}{8}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.1}High-pass filtering}{9}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Low-pass filtering}{10}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Mid-pass filtering}{11}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Additional signal examples}{12}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Example 1}{12}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Example 2}{14}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Example 3}{17}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Example 4}{19}{subsection.5.4}%
+\contentsline {section}{\numberline {6}Conclusion}{22}{section.6}%

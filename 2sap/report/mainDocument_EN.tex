@@ -225,22 +225,243 @@ components of the signal and can be used to identify specific frequency ranges f
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{frequency_domain.png}
+    \includegraphics[width=0.8\textwidth]{frequency_domain.png}
     \caption{Power spectrum of the audio signal}
     \label{fig:power_spectrum}
 \end{figure}
 
+Also signal when transformed to frequency domain, can also be plotted in histgram form. 
+The histogram of the signal is presented in figure \ref{fig:histogram}. The 
+histogram shows the distribution of the signal values in the frequency domain. 
+The x-axis represents the frequency bins, while the y-axis represents the number of
+ occurrences of each frequency bin. The histogram provides insights into the distribution
+  of frequency components in the signal and can be used to identify specific frequency 
+  ranges for filtering.
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{original_spectrum_histogram.png}
+    \caption{Signal in frequency domain and histogram}
+    \label{fig:histogram}
+\end{figure}
 \subsection{High-pass filtering}
 
 \hspace{1 em} High-pass filtering is a signal processing technique that allows high-frequency components of a signal to pass through while attenuating low-frequency components. In this section, we will implement a high-pass filter using the Fourier transform and apply it to the audio signal.
 In the scope of this task, prebuilt function was made, that takes in signal and frequency that is The
 threshold frequency for the high-pass filter. The function returns the filtered signal.
 
-\begin{figure}
+
+
+\begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{high_pass_filter.png}
     \caption{High-pass filtered audio signal}
     \label{fig:high_pass_filter}
 \end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{high_pass_time_domain.png}
+    \caption{High-pass filtered audio signal reversed to time domain}
+    \label{fig:high_pass_filter_histogram}
+
+\end{figure}
+
+\subsection{Low-pass filtering}
+
+\hspace{1 em}Low-pass filtering is a signal processing technique that allows low-frequency 
+components of a signal to pass through while attenuating high-frequency components. In this 
+section, we will implement a low-pass filter using the Fourier transform and apply it to the 
+audio signal.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{low_pass_filter.png}
+    \caption{Low-pass filtered audio signal}
+    \label{fig:low_pass_filter}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{low_pass_filter_time_domain.png}
+    \caption{Low-pass filtered audio signal reversed to time domain}
+    \label{fig:low_pass_filter_histogram}
+\end{figure}
+
+\newpage
+\subsection{Mid-pass filtering}
+
+\hspace{1 em}Mid-pass filtering is a signal processing technique that allows mid-frequency
+components of a signal to pass through while attenuating low and high-frequency components.
+In this section, we will implement a mid-pass filter using the Fourier transform and apply it
+to the audio signal.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{mid_pass_filter.png}
+    \caption{Mid-pass filtered audio signal}
+    \label{fig:mid_pass_filter}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{mid_pass_filter_time.png}
+    \caption{Mid-pass filtered audio signal reversed to time domain}
+    \label{fig:mid_pass_filter_histogram}
+\end{figure}
+
+\newpage
+\section{Additional signal examples}
+
+\subsection{Example 1}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{ex2_raw.png}
+    \caption{Unprocessed audio signal}
+    \label{fig:ex2}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{ex2_frequency_domain.png}
+    \caption{Power spectrum of the audio signal}
+    \label{fig:ex2_freq}
+    
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{ex2_spectrum_histogram.png}
+    \caption{Signal in frequency domain and histogram}
+    \label{fig:ex2_hist}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{ex2_low_pass_filter.png}
+    \caption{Low-pass filtered audio signal}
+    \label{fig:ex2_high}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{ex2_low_pass_filter_time_domain.png}
+    \caption{Low-pass filtered audio signal reversed to time domain}
+    \label{fig:ex2_high_hist}
+\end{figure}
+
+\subsection{Example 2}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{ex3_raw.png}
+    \caption{Unprocessed audio signal}
+    \label{fig:ex3}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{ex3_frequency_domain.png}
+    \caption{Power spectrum of the audio signal}
+    \label{fig:ex3_freq}
+
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{ex3_spectrum_histogram.png}
+    \caption{Signal in frequency domain and histogram}
+    \label{fig:ex3_hist}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{ex3_low_pass_filter.png}
+    \caption{Low-pass filtered audio signal}
+    \label{fig:ex3_low}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{ex3_low_pass_filter_time_domain.png}
+    \caption{High-pass filtered audio signal reversed to time domain}
+    \label{fig:ex3_low_hist}
+\end{figure}
+
+\subsection{Example 3}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{ex4_raw.png}
+    \caption{Unprocessed audio signal}
+    \label{fig:ex4}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{ex4_frequency_domain.png}
+    \caption{Power spectrum of the audio signal}
+    \label{fig:ex4_freq}
+
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{ex4_spectrum_histogram.png}
+    \caption{Signal in frequency domain and histogram}
+    \label{fig:ex4_hist}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{ex4_low_pass_filter.png}
+    \caption{Low-pass filtered audio signal}
+    \label{fig:ex4_low}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{ex4_low_pass_filter_time_domain.png}
+    \caption{Low-pass filtered audio signal reversed to time domain}
+    \label{fig:ex4_low_hist}
+\end{figure}
+
+\subsection{Example 4}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{ex5_raw.png}
+    \caption{Unprocessed audio signal}
+    \label{fig:ex5}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{ex5_frequency_domain.png}
+    \caption{Power spectrum of the audio signal}
+    \label{fig:ex5_freq}
+
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{ex5_spectrum_histogram.png}
+    \caption{Signal in frequency domain and histogram}
+    \label{fig:ex5_hist}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{ex5_low_pass_filter.png}
+    \caption{Low-pass filtered audio signal}
+    \label{fig:ex5_low}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{ex5_low_pass_filter_time_domain.png}
+    \caption{Low-pass filtered audio signal reversed to time domain}
+    \label{fig:ex5_low_hist}
+\end{figure}
+
+
+\newpage
+
+\section{Conclusion}
+
+\hspace{1 em}In this report, we implemented the Discrete Fourier Transform (DFT), Fast Fourier Transform (FFT), Inverse Discrete Fourier Transform (IDFT), and Inverse Fast Fourier Transform (IFFT) algorithms from scratch. We compared the performance of the DFT and FFT algorithms and analyzed the impact of zero padding on the FFT algorithm's performance. We also implemented high-pass, low-pass, and mid-pass filters using the Fourier transform and applied them to audio signals to isolate specific frequency components. The results demonstrate the effectiveness of the Fourier filter in isolating and analyzing frequency components of audio signals.
+
+On the other hand, the analysis of algorithm performance showed that implementation of FFT from scratch is suboptimal and needs to be improved. The comparison of FFT from scratch and numpy FFT showed that numpy FFT is significantly faster. The comparison of DFT and FFT showed that FFT is significantly faster than DFT. The comparison of FFT with and without zero padding showed that zero padding reduces the performance of the FFT algorithm.
+
+FFT is a powerful algorithm that enables efficient analysis and processing of time domain signals and
+their frequency components. By implementing and applying the FFT algorithm, we can gain insights into the frequency characteristics of signals and develop sophisticated signal processing techniques such as filtering, compression, and feature extraction.
+
 \end{document}
 
